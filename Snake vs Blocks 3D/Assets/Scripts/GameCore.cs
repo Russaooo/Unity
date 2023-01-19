@@ -1,11 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor.VersionControl;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class GameCore : MonoBehaviour {
     // ссылки на контроллеры основных объектов
