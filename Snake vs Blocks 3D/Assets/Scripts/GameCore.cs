@@ -115,7 +115,7 @@ public class GameCore : MonoBehaviour {
         PredefinedLevel currentLevelLoadedController = currentLevelLoaded.GetComponent<PredefinedLevel>();
         int levelID = currentLevelLoadedController.levelID;
         Debug.Log("Current levelID was :" + levelID.ToString());
-        if (levelID <= levelList.Count - 1) {
+        if (levelID < levelList.Count - 1) {
             levelID++;
         }
         else {
@@ -171,17 +171,22 @@ public class GameCore : MonoBehaviour {
         string saveData = "";
         string[] saveDataArr;
         saveData = PlayerPrefs.GetString("Save");
-        saveDataArr = saveData.Split(";");
-        List<int> saveDataIntArr = new List<int>();
-        foreach (string k in saveDataArr) { 
-            if(k != "" | k != null) {
+        Debug.Log(saveData.Length);
+        if (saveData.Length > 0) {
+            saveDataArr = saveData.Split(";");
+            List<int> saveDataIntArr = new List<int>();
+            Debug.Log(saveDataArr.Count());
+            foreach (string k in saveDataArr) {
+                Debug.Log("[" + k + "]");
                 string[] kArr = k.Split(":");
                 saveDataIntArr.Add(int.Parse(kArr[1]));
             }
-        }
-        for (int i = 0; i < saveDataIntArr.Count; i++) {
-            if (levelList[i] != null) {
-                levelList[i].bestScore = saveDataIntArr[i];
+            Debug.Log("saveDataIntArr: " + saveDataIntArr.Count);
+            Debug.Log("levelList: " + levelList.Count);
+            for (int i = 0; i < saveDataIntArr.Count; i++) {
+                if (levelList[i] != null) {
+                    levelList[i].bestScore = saveDataIntArr[i];
+                }
             }
         }
     }
