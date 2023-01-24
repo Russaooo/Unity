@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class BoxFrontalCollisionController : MonoBehaviour
 {
@@ -58,7 +55,10 @@ public class BoxFrontalCollisionController : MonoBehaviour
 
     private void OnValidate() {
         BC = transform.parent.GetComponent<BoxController>();
-        PC = GameObject.Find("Player").GetComponent<PlayerController>();
+        if (GameObject.Find("Player") != null) {
+            GameObject.Find("Player").TryGetComponent<PlayerController>(out PC);
+        }
+        
         // установка локального таймера по настройке из ядра
         if (gameCore != null) {
             if (timeToRecalculateDefault != 0) {

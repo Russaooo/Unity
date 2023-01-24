@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
             }
             snakeHeadRB.velocity = new Vector3(0,0, -sidewaysSpeed * 5);
             Vector3 newPosition = snakeHead.position;
-            snakeHead.position = Vector3.MoveTowards(newPosition, new Vector3(newPosition.x + snakeSpeed + gameCore.currentLevelLoaded.GetComponent<PredefinedLevel>().levelExtraSpeed,newPosition.y,newPosition.z), snakeSpeed * Time.deltaTime);
+            snakeHead.position = Vector3.MoveTowards(newPosition, new Vector3(newPosition.x + snakeSpeed,newPosition.y,newPosition.z), (snakeSpeed + gameCore.currentLevelLoaded.GetComponent<PredefinedLevel>().levelExtraSpeed) * Time.deltaTime);
             //sidewaysSpeed = 0;
         }
         else {

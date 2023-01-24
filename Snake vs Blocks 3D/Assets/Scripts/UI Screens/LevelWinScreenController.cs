@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class LevelWinScreenController : MonoBehaviour
 {
     public GameCore gameCore;

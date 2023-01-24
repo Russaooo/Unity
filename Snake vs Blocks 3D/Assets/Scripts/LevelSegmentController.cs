@@ -1,6 +1,4 @@
-using UnityEditor.SceneManagement;
 using UnityEngine;
-
 public class LevelSegmentController : MonoBehaviour
 {
     public GameCore gameCore;
