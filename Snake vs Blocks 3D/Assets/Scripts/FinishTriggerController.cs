@@ -91,7 +91,7 @@ public class FinishTriggerController : MonoBehaviour
         }
     }
     private void OnValidate() {
-        FillWaypointsInfo();
+        FillWaypointsInfo(false);
         HideWaypoints();
         ShowWaypoints();
     }
